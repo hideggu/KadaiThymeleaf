@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="utf-8">
+    <title>Kadai Thymeleaf</title>
+</head>
+
+<body>
+    <!-- プロパティファイルからタイトルを表示させる -->
+    <h1 th:text="#{content.title}"></h1>
+    <h2>入力画面</h2>
+    <p>値を入力してください。</p>
+
+    <!-- ここからフォーム -->
+    <form method="post" action="/output">
+        <!-- テキストタイプで入力された値をvalに格納する　-->
+        <input type="text" name="val">
+
+        <!-- タイムリーフの条件文でpreviousがnullか空欄「ではない」場合は文字を表示 -->
+        <p th:if="${previous != null and previous !=''}" th:text="'前回入力された値は「' + ${previous} + '」です。'"></p>
+
+        <button type="submit">送信</button>
+    </form>
+    <!-- フォームここまで -->
+
+</body>
+
+</html>

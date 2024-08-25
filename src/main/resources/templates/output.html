@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="utf-8">
+    <title>Kadai Thymeleaf</title>
+</head>
+
+<body>
+    <!-- プロパティファイルからタイトルを表示させる -->
+    <h1 th:text="#{content.title}"></h1>
+    <h2>出力画面</h2>
+    <!-- inputフォームから送信された値を表示する -->
+    <p th:text="'入力された値は「' + ${val} + '」です。'"></p>
+    <!-- 入力画面へ戻るをクリックすると、previousパラメーターを持って入力画面へ戻る -->
+    <p><a th:href="@{/input(previous=${val})}">入力画面へ戻る</a></p>
+</body>
+
+</html>
